@@ -99,6 +99,26 @@
         "price": 285,
         "category": 5,
         "rating": 7
-      }
+      },
+      {
+        "id": 10,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/b618de8dbec141289617c0bd0728ba51_292x292.jpeg",
+        "name": "Индейка в мандаринах",
+        "types": [0, 1],
+        "sizes": [26, 40],
+        "price": 549,
+        "category": 2,
+        "rating": 8
+      },
+      {
+        "id": 11,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/7a0fac09c2264f8e8928f205c7acb5cf_292x292.jpeg",
+        "name": "Карбонара",
+        "types": [0],
+        "sizes": [26, 30],
+        "price": 445,
+        "category": 4,
+        "rating": 10
+      }      
     ]
   }

@@ -11,8 +11,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/db.json').then(({ data }) => {
-      dispatch(setPizzas(data.pizzas));
+    // перенести в Redux и подключить redux-thunk
+    // Следить за фильтрацией и сортировкой и подставлять данные из URL
+    // Следать имитацию загрузки пицц из CSS
+    axios.get('http://localhost:3001/pizzas').then(({ data }) => {
+      dispatch(setPizzas(data));
     })
   })
 
