@@ -1,26 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 
 // используем memo для того, чтобы не происходит ненужный ререндер компонента при неизменных параментрах
-const Categories = React.memo(function Categories({ items, onClickItem }) {
-    const [activeItem, setActiveItem] = useState(null);
-
-    const onSelectItems = (index) => {
-        setActiveItem(index);
-        onClickItem(index);
-    }
+const Categories = React.memo(function Categories({ activeCategory, items, onClickCategory }) {
 
     return (
         <div className="categories">
             <ul>
                 <li
-                    onClick={() => onSelectItems(null)}
-                    className={activeItem === null ? 'active' : ''}>
+                    onClick={() => onClickCategory(null)}
+                    className={activeCategory === null ? 'active' : ''}>
                     Все
                 </li>
                 {items && items.map((item, index) => (
                     <li
-                        onClick={() => onSelectItems(index)}
-                        className={activeItem === index ? 'active' : ''}
+                        onClick={() => onClickCategory(index)}
+                        className={activeCategory === index ? 'active' : ''}
                         key={index}>
                         {item}
                     </li>))}
@@ -28,5 +23,13 @@ const Categories = React.memo(function Categories({ items, onClickItem }) {
         </div>
     )
 })
+
+Categories.propTypes = {
+    // activeCategory: PropTypes.oneOf([PropTypes.number, null]),
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onClickCategory: PropTypes.func
+}
+
+Categories.defaultProps = {activeCategory:null, items: []}
 
 export default Categories
