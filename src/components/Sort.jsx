@@ -11,7 +11,9 @@ const Sort = React.memo(function Sort({items, activeSort, onClickSort}) {
     }
 
     function handleMouseClick(e) {
-        if (!e.path.includes(sortRef.current)) {
+        // eslint-disable-next-line no-undef
+        const path = e.path || (e.composedPath && e.composedPath()) || composedPath(e.target);
+        if (!path.includes(sortRef.current)) {
             setVisiblePopup(false)
         }
     }
