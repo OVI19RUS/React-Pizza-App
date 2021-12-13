@@ -11,7 +11,7 @@ export const fetchPizzas = (sortBy, category) => (dispatch) => {
         payload: false,
     }
     ); // при любом вызов данной функции изначально ставится false; без диспатча - просто объект
-    axios.get(`http://localhost:3001/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&_order=${
+    axios.get(`/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&_order=${
         sortBy.order
       }`).then(({ data }) => {
         dispatch(setPizzas(data));
