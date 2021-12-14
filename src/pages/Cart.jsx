@@ -1,7 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import CartItem from '../components/CartItem'
-import { clearCart } from '../redux/actions/cart'
+import { Link } from "react-router-dom";
+
+import { CartItem, Button } from '../components'
+import { clearCart, removeCartItem, addPizza, removePizza } from '../redux/actions/cart'
 import emptyImg from '../assets/img/empty-cart.png'
 
 function Cart() {
@@ -16,6 +18,24 @@ function Cart() {
         if (window.confirm('Вы действительно хотите очистить корзину?')) {
             dispatch(clearCart())
         }
+    }
+
+    const onDeleteItem = (id) => {
+        if (window.confirm('Вы действительно хотите удалить данную пиццу?')) {
+            dispatch(removeCartItem(id))
+        }
+    }
+
+    const addCartItem = (id) => {
+        dispatch(addPizza(id))
+    }
+
+    const deleteCartItem = (id) => {
+        dispatch(removePizza(id))
+    }
+
+    const defaultBuy = () => {
+        alert('ВАШ ЗАКАЗ ОПЛАЧЕН')
     }
 
     return (
@@ -44,11 +64,16 @@ function Cart() {
                         <div className="content__items">
                             {pizzasAddedToCart.map(obj =>
                                 <CartItem
+                                    key={obj.id}
+                                    id={obj.id}
                                     name={obj.name}
                                     type={obj.type}
                                     size={obj.size}
                                     totalPizzasPrice={items[obj.id].totalPrice}
                                     totalPizzasCount={items[obj.id].items.length}
+                                    onDeleteItem={onDeleteItem}
+                                    addCartItem={addCartItem}
+                                    deleteCartItem={deleteCartItem}
                                 />)
                             }
                         </div>
@@ -62,27 +87,28 @@ function Cart() {
                                     <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
-
-                                    <span>Вернуться назад</span>
+                                    <Link to='/'>
+                                        <span>Вернуться назад</span>
+                                    </Link>
                                 </a>
-                                <div className="button pay-btn">
+                                <Button onClick={defaultBuy} className="pay-btn">
                                     <span>Оплатить сейчас</span>
-                                </div>
+                                </Button>
                             </div>
                         </div>
-                    </div> 
-                    : 
-                    <div className="cart cart--empty">
-                        <h2>Корзина пустая <icon>😕</icon></h2>
-                        <p>
-                            Вероятней всего, вы не заказывали ещё пиццу.<br />
-                            Для того, чтобы заказать пиццу, перейди на главную страницу.
-                        </p>
-                        <img src={emptyImg} alt="Empty cart" />
-                        <a href="/" class="button button--black">
-                            <span>Вернуться назад</span>
-                        </a>
                     </div>
+                        :
+                        <div className="cart cart--empty">
+                            <h2>Корзина пустая <i>😕</i></h2>
+                            <p>
+                                Вероятней всего, вы не заказывали ещё пиццу.<br />
+                                Для того, чтобы заказать пиццу, перейди на главную страницу.
+                            </p>
+                            <img src={emptyImg} alt="Empty cart" />
+                            <Link to='/' class="button button--black">
+                                <span>Вернуться назад</span>
+                            </Link>
+                        </div>
                 }
             </div>
         </div>
