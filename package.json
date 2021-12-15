@@ -43,7 +43,7 @@
       }
     }
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://secure-thicket-01596.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",
