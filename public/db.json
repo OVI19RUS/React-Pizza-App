@@ -77,7 +77,7 @@
         "types": [0, 1],
         "sizes": [26, 30, 40],
         "price": 450,
-        "category": 4,
+        "category": 1,
         "rating": 10
       },
       {
@@ -107,7 +107,7 @@
         "types": [0, 1],
         "sizes": [26, 40],
         "price": 549,
-        "category": 2,
+        "category": 4,
         "rating": 8
       },
       {
@@ -119,6 +119,46 @@
         "price": 445,
         "category": 0,
         "rating": 10
-      }      
+      },
+      {
+        "id": 12,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/9bd4c76d4c2548c090ac6ae5a1eabae6_292x292.jpeg",
+        "name": "Песто",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 525,
+        "category": 0,
+        "rating": 7
+      },
+      {
+        "id": 13,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/4749ca7de7e247daa69a685714f06aa3_292x292.jpeg",
+        "name": "Гавайская",
+        "types": [1],
+        "sizes": [30],
+        "price": 310,
+        "category": 2,
+        "rating": 6
+      },
+      {
+        "id": 14,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/67040d5b9c3a42e2a0deb93cca61f1ac_292x292.jpeg",
+        "name": "Фристайло",
+        "types": [0, 1],
+        "sizes": [30, 40],
+        "price": 610,
+        "category": 3,
+        "rating": 8
+      },
+      {
+        "id": 15,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/1130292c8ffb4c34bb0a20619e65efb3_292x292.jpeg",
+        "name": "Четыре сыра",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 595,
+        "category": 1,
+        "rating": 10
+      }            
     ]
   }
